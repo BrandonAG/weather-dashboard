@@ -40,7 +40,7 @@ function loadCities() {
             searchCol.appendChild(cityEl);
         }
         if (weatherCol.childElementCount < 2) {
-            populateWeather(savedCities[0].city,savedCities[0].lat,savedCities[0].lat)
+            populateWeather(savedCities[0].city,savedCities[0].lat,savedCities[0].lon)
         }
     }
 }
