@@ -125,3 +125,22 @@ header {
 #saved-locations button:hover {
     background-color: lightgray;
 }
+
+.safe {
+    background-color: green;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+
+.moderate {
+    background-color: yellow;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.danger {
+    background-color: red;
+    border-radius: 5px;
+    padding: 5px;
+}

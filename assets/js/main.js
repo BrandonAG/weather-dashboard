@@ -75,6 +75,16 @@ function populateWeather(city,latitude,longitude) {
             // Populate current weather
             var currentWeather = document.createElement("div");
             currentWeather.setAttribute("id", "current-weather");
+            var uvi_level = "";
+            if (data.current.uvi < 3) {
+                uvi_level = "safe";
+            }
+            else if (data.current.uvi < 8) {
+                uvi_level = "moderate";
+            }
+            else {
+                uvi_level = "danger";
+            }
             currentWeather.innerHTML = 
                 "<h2>" + 
                 city + " (" + moment().format("L") + ") " + 
@@ -83,7 +93,7 @@ function populateWeather(city,latitude,longitude) {
                 "<p>Temperature: " + data.current.temp + " °F</p>" +
                 "<p>Humidity: " + data.current.humidity + "%</p>" +
                 "<p>Wind Speed: " + data.current.wind_speed + " MPH</p>" +
-                "<p>UV Index: " + data.current.uvi + "</p>";
+                '<p>UV Index: <span class="' + uvi_level + '">' + data.current.uvi + "</span></p>";
             weatherCol.appendChild(currentWeather);
 
             // Populate 5 day forcast
