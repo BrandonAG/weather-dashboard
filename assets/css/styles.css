@@ -29,16 +29,16 @@ header {
 }
 
 .col-right {
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     flex: calc(100% * 2 / 3);
 }
 
-form {
+.search {
     display: flex;
-    margin-top: 8px;
+    margin: 8px 0 16px 0;
 }
 
-form input {
+.search input {
     outline: none;
     min-width: 50%;
     font-size: large;
@@ -48,12 +48,12 @@ form input {
     border: lightgray solid 2px;
 }
 
-form input:focus {
-    border-radius: 8px;
+.search input:focus {
     border: gray solid 2px;
 }
 
-form button {
+.search button {
+    outline: none;
     color: white;
     font-size: large;
     padding: 8px;
@@ -63,6 +63,60 @@ form button {
     border: #007fff solid 2px;
 }
 
-form button:hover{
+.search button:hover{
     border-style: outset;
+}
+
+#current-weather {
+    padding: 8px 16px;
+    width: auto;
+    margin: 8px;
+    border-radius: 5px;
+    border: lightgray solid 2px;
+    line-height: 300%;
+}
+
+.forcast-box {
+    margin: 8px 8px 0 8px;
+    line-height: 300%;
+}
+
+#forcast-weather {
+    display: flex;
+    line-height: 300%;
+}
+
+.daily {
+    flex: calc(100% / 5);
+    background-color: #007fff;
+    border-radius: 5px;
+    margin: 8px 8px 0 0;
+    padding: 4px 8px;
+    color: white;
+}
+
+.daily:last-child {
+    margin-right: 0;
+}
+
+#saved-locations button {
+    width: 100%;
+    font-size: large;
+    border-radius: 0;
+    border: lightgray solid 2px;
+    border-bottom: none;
+    line-height: 200%;
+}
+
+#saved-locations button:first-child {
+    border-radius: 5px 5px 0 0;
+}
+
+#saved-locations button:last-child {
+    border-radius: 0 0 5px 5px;
+    border-bottom: lightgray solid 2px;
+}
+
+#saved-locations button:hover {
+    background-color: lightgray;
 }

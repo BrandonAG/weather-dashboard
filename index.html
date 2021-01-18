@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Weather Dashboard</title>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt8py5NagvvwnvqX8xH78p6ZFSBeSBd-o&callback=initAutocomplete&libraries=places">
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -18,21 +21,26 @@
 
     <!-- Left Content -->
     <div class="col-left">
-        <h2>Search for a City:</h2>
+        <h3>Search for a City:</h3>
+
         <!-- Form -->
-        <form>
-            <input type="text" placeholder="Enter City.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+        <div class="search">
+            <input type="text" id="entry" placeholder="Enter City..">
+            <button type="submit" id="form-sub"><i class="fa fa-search"></i></button>
+        </div>
+
+        <!-- Saved Locations -->
+        <div id="saved-locations"></div>
     </div>
 
     <!-- Right Content -->
     <div class="col-right">
-        <p>Weather information to be populated here.</p>
+        <h2>Enter City to See Forcast</h2>
     </div>
 
     </div>
 
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
