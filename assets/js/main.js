@@ -15,24 +15,21 @@ entry.addEventListener('keyup', function(event) {
 });
 
 var btnClk = document.querySelector("#saved-locations");
-        btnClk.addEventListener("click", function(e){
-            console.log("Button Clicked: " + e.target.getAttribute("city-num"));
-            console.log(document.querySelector('[city-num="' + e.target.getAttribute("city-num") + '"]').innerHTML);
-            var city = document.querySelector('[city-num="' + e.target.getAttribute("city-num") + '"]').innerHTML;
-            var lat = "";
-            var lon = "";
-            for (var i = 0; i < savedCities.length; i++) {
-                if (savedCities[i].city == city) {
-                    lat = savedCities[i].lat;
-                    lon = savedCities[i].lon;
-                }
+    btnClk.addEventListener("click", function(e){
+        var city = document.querySelector('[city-num="' + e.target.getAttribute("city-num") + '"]').innerHTML;
+        var lat = "";
+        var lon = "";
+        for (var i = 0; i < savedCities.length; i++) {
+            if (savedCities[i].city == city) {
+                lat = savedCities[i].lat;
+                lon = savedCities[i].lon;
             }
-            addCity(city,lat,lon);
-        });
+        }
+        addCity(city,lat,lon);
+    });
 
 function loadCities() {
     savedCities = JSON.parse(localStorage.getItem("saved-cities"));
-    // console.log(savedCities)
     if(savedCities) {
         searchCol.innerHTML = "";
         for (var i = 0; i < savedCities.length; i++) {
@@ -45,15 +42,12 @@ function loadCities() {
         if (weatherCol.childElementCount < 2) {
             populateWeather(savedCities[0].city,savedCities[0].lat,savedCities[0].lat)
         }
-        
     }
 }
 
 function addCity(city,lat,lon) {
-    console.log(savedCities)
     if(savedCities) {
         for (var i = 0; i < savedCities.length; i++) {
-            console.log(savedCities[i].city);
             if (savedCities[i].city == city) {
                 savedCities.splice(i, 1);
             }
@@ -135,6 +129,7 @@ document.getElementById('form-sub').addEventListener('click', function() {
                     addCity(city,latitude,longitude);
                 });
         })
+        entry.value = "";
     }
 })
 
