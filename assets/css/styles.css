@@ -20,17 +20,20 @@ header {
 
 .row {
     display: flex;
+    flex-wrap: wrap;
 }
   
 .col-left {
     padding: 20px;
     background-color: #f2f3f4;
     flex: calc(100% / 3);
+    flex-grow: 1;
 }
 
 .col-right {
     padding: 20px 20px 0 20px;
     flex: calc(100% * 2 / 3);
+    flex-grow: 1;
 }
 
 .search {
@@ -83,20 +86,20 @@ header {
 
 #forcast-weather {
     display: flex;
+    flex-wrap: wrap;
     line-height: 300%;
+    margin: 0 -8px 0 -8px;
 }
 
 .daily {
-    flex: calc(100% / 5);
+    flex: 1 1 auto;
+    justify-content: space-between;
     background-color: #007fff;
     border-radius: 5px;
-    margin: 8px 8px 0 0;
     padding: 4px 8px;
     color: white;
-}
-
-.daily:last-child {
-    margin-right: 0;
+    margin: 16px 8px 0 8px;
+    min-width: 200px;
 }
 
 #saved-locations button {
