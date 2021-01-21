@@ -118,6 +118,7 @@ function populateWeather(city,latitude,longitude) {
 document.getElementById('form-sub').addEventListener('click', function() {
     if (entry.value) {
 
+        // Google API example: https://developers.google.com/maps/documentation/javascript/examples/places-queryprediction
         var autocompleteService = new google.maps.places.AutocompleteService();
         autocompleteService.getPlacePredictions({
             input: entry.value,
@@ -125,16 +126,15 @@ document.getElementById('form-sub').addEventListener('click', function() {
         },
         function(predictions, status) {
             console.log(status);
-            placeId = predictions[0].place_id;
+            placeName = predictions[0].description;
 
-            // To-Do: find better way of using Google's Place Details API without proxy
-            // https://developers.google.com/places/web-service/details#PlaceDetailsRequests
-            fetch("https://cors-anywhere.herokuapp.com/" + "https://maps.googleapis.com/maps/api/place/details/json?place_id=" + placeId + "&fields=address_components,geometry&key=AIzaSyBt8py5NagvvwnvqX8xH78p6ZFSBeSBd-o")
+            // Google API example: https://developers.google.com/maps/documentation/geocoding/overview
+            fetch("https://maps.googleapis.com/maps/api/geocode/json?&address=" + placeName + "&key=AIzaSyBt8py5NagvvwnvqX8xH78p6ZFSBeSBd-o")
                 .then(response => response.json())
                 .then(function(data) {
-                    var latitude = data.result.geometry.location.lat;
-                    var longitude = data.result.geometry.location.lng;
-                    var city = data.result.address_components[0].long_name;
+                    var latitude = data.results[0].geometry.location.lat;
+                    var longitude = data.results[0].geometry.location.lng;
+                    var city = data.results[0].address_components[0].long_name;
                     // Add city to storage
                     addCity(city,latitude,longitude);
                 });
@@ -143,6 +143,7 @@ document.getElementById('form-sub').addEventListener('click', function() {
     }
 })
 
+// Autocomplete html search field.
 // Google API example: https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
 function initAutocomplete() {
     // Create the autocomplete object, restricting the search predictions to

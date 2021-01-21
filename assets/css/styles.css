@@ -73,14 +73,14 @@ header {
 #current-weather {
     padding: 8px 16px;
     width: auto;
-    margin: 8px;
+    /* margin: 8px; */
     border-radius: 5px;
     border: lightgray solid 2px;
     line-height: 300%;
 }
 
 .forcast-box {
-    margin: 8px 8px 0 8px;
+    margin: 8px 0 0 0;
     line-height: 300%;
 }
 
@@ -98,7 +98,7 @@ header {
     border-radius: 5px;
     padding: 4px 8px;
     color: white;
-    margin: 16px 8px 0 8px;
+    margin: 8px 8px 8px 8px;
     min-width: 200px;
 }
 
