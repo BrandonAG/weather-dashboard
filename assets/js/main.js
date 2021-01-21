@@ -88,7 +88,7 @@ function populateWeather(city,latitude,longitude) {
             currentWeather.innerHTML = 
                 "<h2>" + 
                 city + " (" + moment().format("L") + ") " + 
-                '<img style="line-height: 100%;" src="http://openweathermap.org/img/wn/' + data.current.weather[0].icon + '@2x.png" width="50px" height="50px" alt="">' +
+                '<img style="line-height: 100%;" src="https://openweathermap.org/img/wn/' + data.current.weather[0].icon + '@2x.png" width="50px" height="50px" alt="">' +
                 "</h2>" +
                 "<p>Temperature: " + data.current.temp + " °F</p>" +
                 "<p>Humidity: " + data.current.humidity + "%</p>" +
@@ -107,7 +107,7 @@ function populateWeather(city,latitude,longitude) {
                 dayEl.setAttribute("class", "daily");
                 dayEl.innerHTML = 
                     "<h3>" + moment.unix(data.daily[day].dt).format("MM/DD/YYYY") + "</h3>" +
-                    '<img src="http://openweathermap.org/img/wn/' + data.daily[day].weather[0].icon + '@2x.png" width="50px" height="50px" alt="">' +
+                    '<img src="https://openweathermap.org/img/wn/' + data.daily[day].weather[0].icon + '@2x.png" width="50px" height="50px" alt="">' +
                     "<p>Temp: " + data.daily[day].temp.max + " °F</p>" +
                     "<p>Humidity: " + data.daily[day].humidity + "%</p>";
                 flexEl.appendChild(dayEl);
